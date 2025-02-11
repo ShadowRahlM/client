@@ -21,4 +21,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Additional interactive functionality can be added here
+    updateTime();
+    setInterval(updateTime, 1000);
+
+    // Dark mode toggle functionality
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
 });
+
+function updateTime() {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString();
+    const dateString = now.toLocaleDateString();
+    document.getElementById('clock').textContent = `${dateString} ${timeString}`;
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    if (document.body.classList.contains('dark')) {
+        darkModeToggle.innerHTML = '🌞'; // Light mode icon
+    } else {
+        darkModeToggle.innerHTML = '🌜'; // Dark mode icon
+    }
+}
