@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Website</title>
+    <title>Snow dental services</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
+    </script>
 </head>
 <body class="bg-gray-100">
     <header class="bg-white shadow">
@@ -50,6 +62,7 @@
     <footer class="bg-white shadow mt-10">
         <div class="container mx-auto px-4 py-6 text-center">
             <p class="text-gray-600">© 2023 Dental Practice. All rights reserved.</p>
+            <p id="clock" class="text-gray-600"></p>
         </div>
     </footer>
 </body>
