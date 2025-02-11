@@ -6,6 +6,17 @@
     <title>Snow dental services</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="js/main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function updateClock() {
+                const clockElement = document.getElementById('clock');
+                const now = new Date();
+                clockElement.textContent = now.toLocaleTimeString();
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+        });
+    </script>
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
     <header class="bg-white dark:bg-gray-800 shadow">
@@ -15,7 +26,7 @@
                 <span id="dark-mode-icon" class="text-xl">🌜</span>
             </button>
         </div>
-        <nav class="mt-4">
+        <nav class="container mx-auto mt-4">
             <ul class="flex justify-center space-x-4">
                 <li><a href="index.html" class="text-blue-600 dark:text-blue-400 hover:underline">Home</a></li>
                 <li><a href="about.html" class="text-blue-600 dark:text-blue-400 hover:underline">About Us</a></li>
@@ -29,7 +40,7 @@
         <section class="text-center">
             <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Your Smile is Our Priority</h2>
             <p class="mt-2 text-gray-600 dark:text-gray-300">Better teeth better health.</p>
-            <img src="https://via.placeholder.com/600x300?text=Dental+Care" alt="Dental Care" class="mx-auto mt-4 rounded-lg shadow-lg">
+            <img src="https://images.stockcake.com/public/3/e/1/3e12f661-2bde-4185-ade5-257544ce3492_large/dental-care-fun-stockcake.jpg" alt="Dental Care" class="mx-auto mt-4 rounded-lg shadow-lg">
         </section>
 
         <section class="mt-10">
@@ -37,14 +48,17 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
                 <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
                     <h4 class="font-bold text-gray-900 dark:text-white">General Dentistry</h4>
+                    <img src="https://thumbs.dreamstime.com/b/patient-consulting-dentist-general-dental-discussion-patient-consulting-dentist-general-dental-discussion-face-mask-214581009.jpg" alt="General Dentistry" class="mx-auto mt-4 rounded-lg shadow-lg">
                     <p class="text-gray-600 dark:text-gray-300">Routine check-ups and cleanings to keep your teeth healthy.</p>
                 </div>
                 <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
                     <h4 class="font-bold text-gray-900 dark:text-white">Cosmetic Dentistry</h4>
+                    <img src="https://st3.depositphotos.com/7319880/31961/i/450/depositphotos_319613726-stock-photo-man-smiling-while-female-dentist.jpg" alt="Cosmetic Dentistry" class="mx-auto mt-4 rounded-lg shadow-lg">
                     <p class="text-gray-600 dark:text-gray-300">Enhancing the appearance of your smile with various treatments.</p>
                 </div>
                 <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
                     <h4 class="font-bold text-gray-900 dark:text-white">Orthodontics</h4>
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/027/602/471/small/tooth-model-from-dental-braces-with-inter-dental-teeth-cleaning-brush-photo.jpg" alt="Orthodontics" class="mx-auto mt-4 rounded-lg shadow-lg">
                     <p class="text-gray-600 dark:text-gray-300">Braces and aligners to straighten your teeth.</p>
                 </div>
             </div>
@@ -54,7 +68,9 @@
     <footer class="bg-white dark:bg-gray-800 shadow mt-10">
         <div class="container mx-auto px-4 py-6 text-center">
             <p class="text-gray-600 dark:text-gray-300">© 2025 Dental Practice. All rights reserved.</p>
-            <p id="clock" class="text-gray-600 dark:text-gray-300"></p>
+            <p class="text-gray-600 dark:text-gray-300">Snow Dental Services: 0789579795 (WhatsApp) | 0756350444 (Dialing)</p>
+            <p class="text-gray-600 dark:text-gray-300">Operating Hours: Mon-Sat 8AM to 8PM, Sun 10AM to 11PM</p>
+            <p id="clock" class="text-gray-600 dark:text-gray-300">Loading time...</p>
         </div>
     </footer>
 </body>
