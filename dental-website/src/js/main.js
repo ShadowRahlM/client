@@ -1,49 +1,48 @@
 // This file contains JavaScript functionality for interactive elements on the website, such as form validation or dynamic content loading.
 
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Simple form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const darkModeIcon = document.getElementById('dark-mode-icon');
 
-            if (name === '' || email === '' || message === '') {
-                alert('Please fill in all fields.');
-            } else {
-                alert('Thank you for your message!');
-                contactForm.reset();
-            }
-        });
+    // Function to set the dark mode
+    function setDarkMode(isDark) {
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            darkModeIcon.textContent = '🌞';
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkModeIcon.textContent = '🌜';
+            localStorage.setItem('darkMode', 'disabled');
+        }
     }
 
-    // Additional interactive functionality can be added here
-    updateTime();
-    setInterval(updateTime, 1000);
-
-    // Dark mode toggle functionality
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-    }
-});
-
-function updateTime() {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString();
-    const dateString = now.toLocaleDateString();
-    document.getElementById('clock').textContent = `${dateString} ${timeString}`;
-}
-
-function toggleDarkMode() {
-    document.body.classList.toggle('dark');
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    if (document.body.classList.contains('dark')) {
-        darkModeToggle.innerHTML = '🌞'; // Light mode icon
+    // Check for saved dark mode preference or use system preference
+    if (localStorage.getItem('darkMode') === 'enabled' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        setDarkMode(true);
     } else {
-        darkModeToggle.innerHTML = '🌜'; // Dark mode icon
+        setDarkMode(false);
     }
-}
+
+    // Toggle dark mode
+    darkModeToggle.addEventListener('click', () => {
+        if (document.documentElement.classList.contains('dark')) {
+            setDarkMode(false);
+        } else {
+            setDarkMode(true);
+        }
+    });
+
+    // Update clock
+    function updateClock() {
+        const clockElement = document.getElementById('clock');
+        if (clockElement) {
+            const now = new Date();
+            clockElement.textContent = now.toLocaleTimeString();
+        }
+    }
+
+    // Update clock every second
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial update
+});
