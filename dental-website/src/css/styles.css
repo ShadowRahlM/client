@@ -1,0 +1,70 @@
+/* Loading Animation */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease-out;
+}
+
+.dark .loading-overlay {
+    background: rgba(17, 24, 39, 0.98);
+}
+
+.loading-icon {
+    width: 60px;
+    height: 60px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Header Styles */
+.header-gradient {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark .header-gradient {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+}
+
+.header-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.2) 0%, transparent 50%);
+}
+
+.header-nav {
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .header-nav {
+    background-color: rgba(17, 24, 39, 0.8);
+}
+
+/* Hide loading overlay when page is loaded */
+.loaded .loading-overlay {
+    opacity: 0;
+    pointer-events: none;
+}

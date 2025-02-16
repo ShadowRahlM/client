@@ -1,4 +1,9 @@
-// This file contains JavaScript functionality for interactive elements on the website, such as form validation or dynamic content loading.
+// This file contains JavaScript functionality for interactive elements on the website.
+
+// Wait for all content to load
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('dark-mode-toggle');
