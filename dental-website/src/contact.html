@@ -4,30 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Snow dental services</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=1imD2S2LULz7&format=png&color=000000">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <script src="js/main.js" defer></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactForm = document.getElementById('contact-form');
-
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                // Send email
-                const mailtoLink = `mailto:dr.emmanuel@example.com?subject=Contact%20from%20${name}&body=Name:%20${name}%0AEmail:%20${email}%0AMessage:%20${message}`;
-                window.location.href = mailtoLink;
-
-                // Send WhatsApp message
-                const whatsappLink = `https://wa.me/0789579795?text=Name:%20${name}%0AEmail:%20${email}%0AMessage:%20${message}`;
-                window.open(whatsappLink, '_blank');
-            });
-        });
-    </script>
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
     <!-- Loading Overlay -->
