@@ -7,48 +7,50 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="js/main.js" defer></script>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors duration-300">
     <header class="bg-white dark:bg-gray-800 shadow">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-center">About Us</h1>
-            <button id="dark-mode-toggle" class="text-blue-500 hover:underline">
+            <h1 class="text-3xl font-bold text-center text-gray-900 dark:text-white">About Us</h1>
+            <button id="dark-mode-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
                 🌜
             </button>
         </div>
-        <nav class="mt-4">
+        <nav class="container mx-auto mt-4">
             <ul class="flex justify-center space-x-4">
-                <li><a href="index.html" class="text-blue-500 hover:underline">Home</a></li>
-                <li><a href="about.html" class="text-blue-500 hover:underline">About Us</a></li>
-                <li><a href="services.html" class="text-blue-500 hover:underline">Services</a></li>
-                <li><a href="contact.html" class="text-blue-500 hover:underline">Contact</a></li>
+                <li><a href="index.html" class="text-blue-600 dark:text-blue-400 hover:underline">Home</a></li>
+                <li><a href="about.html" class="text-blue-600 dark:text-blue-400 hover:underline">About Us</a></li>
+                <li><a href="services.html" class="text-blue-600 dark:text-blue-400 hover:underline">Services</a></li>
+                <li><a href="contact.html" class="text-blue-600 dark:text-blue-400 hover:underline">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container mx-auto px-4 py-10">
         <section class="text-center">
-            <h2 class="text-2xl font-semibold">Our Story</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Our Story</h2>
             <p class="mt-2 text-gray-600 dark:text-gray-300">Learn more about our dental practice and our team.</p>
-            <img src="https://via.placeholder.com/600x300?text=About+Us" alt="About Us" class="mx-auto mt-4 rounded-lg shadow-lg">
+            <img src="https://picsum.photos/600/300" alt="About Us" class="w-full h-auto mb-4 rounded-lg shadow-lg">
         </section>
 
         <section class="mt-10 text-center">
-            <h2 class="text-2xl font-semibold">Meet Our Team</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-                    <h4 class="font-bold text-gray-900 dark:text-white">Dr. Kaaki Emmanuel</h4>
-                    <img src="https://via.placeholder.com/150?text=Dr.+Kaaki+Emmanuel" alt="Dr. Kaaki Emmanuel" class="mx-auto mt-4 rounded-full shadow-lg">
-                    <p class="text-gray-600 dark:text-gray-300">Specialist in General Dentistry</p>
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-8">Meet Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-colors duration-300">
+                    <img src="https://picsum.photos/150" alt="Dr. Kaaki Emmanuel" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Dr. Kaaki Emmanuel</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Lead Dentist</p>
                 </div>
-                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-                    <h4 class="font-bold text-gray-900 dark:text-white">Dr. Tumwine John</h4>
-                    <img src="https://via.placeholder.com/150?text=Dr.+Tumwine+John" alt="Dr. Tumwine John" class="mx-auto mt-4 rounded-full shadow-lg">
-                    <p class="text-gray-600 dark:text-gray-300">Specialist in Orthodontics</p>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-colors duration-300">
+                    <img src="https://picsum.photos/150" alt="Dr. Tumwine John" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Dr. Tumwine John</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Orthodontist</p>
                 </div>
-                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-                    <h4 class="font-bold text-gray-900 dark:text-white">Dr. Wanabuya Erickson</h4>
-                    <img src="https://via.placeholder.com/150?text=Dr.+Wanabuya+Erickson" alt="Dr. Wanabuya Erickson" class="mx-auto mt-4 rounded-full shadow-lg">
-                    <p class="text-gray-600 dark:text-gray-300">Specialist in Pediatric Dentistry</p>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-colors duration-300">
+                    <img src="https://picsum.photos/150" alt="Dr. Wanabuya Erickson" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Dr. Wanabuya Erickson</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Cosmetic Specialist</p>
                 </div>
             </div>
         </section>
@@ -56,7 +58,9 @@
 
     <footer class="bg-white dark:bg-gray-800 shadow mt-10">
         <div class="container mx-auto px-4 py-6 text-center">
-            <p class="text-gray-600 dark:text-gray-300">© 2025 Dental Practice. All rights reserved.</p>
+            <p class="text-gray-600 dark:text-gray-300"> 2025 Dental Practice. All rights reserved.</p>
+            <p class="text-gray-600 dark:text-gray-300">Snow Dental Services: 0789579795 (WhatsApp) | 0756350444 (Dialing)</p>
+            <p class="text-gray-600 dark:text-gray-300">Operating Hours: Mon-Sat 8AM to 8PM, Sun 10AM to 11PM</p>
         </div>
     </footer>
 </body>

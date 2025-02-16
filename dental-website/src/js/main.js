@@ -8,30 +8,32 @@ document.addEventListener('DOMContentLoaded', () => {
     function setDarkMode(isDark) {
         if (isDark) {
             document.documentElement.classList.add('dark');
-            darkModeIcon.textContent = '🌞';
             localStorage.setItem('darkMode', 'enabled');
         } else {
             document.documentElement.classList.remove('dark');
-            darkModeIcon.textContent = '🌜';
             localStorage.setItem('darkMode', 'disabled');
         }
+        
+        // Update icon if it exists
+        const icon = document.querySelector('#dark-mode-toggle');
+        if (icon) {
+            icon.innerHTML = isDark ? '🌞' : '🌜';
+        }
     }
 
-    // Check for saved dark mode preference or use system preference
-    if (localStorage.getItem('darkMode') === 'enabled' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        setDarkMode(true);
-    } else {
-        setDarkMode(false);
-    }
+    // Initialize dark mode from localStorage
+    const darkModeEnabled = localStorage.getItem('darkMode') === 'enabled' || 
+        (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    
+    setDarkMode(darkModeEnabled);
 
     // Toggle dark mode
-    darkModeToggle.addEventListener('click', () => {
-        if (document.documentElement.classList.contains('dark')) {
-            setDarkMode(false);
-        } else {
-            setDarkMode(true);
-        }
-    });
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            setDarkMode(!isDark);
+        });
+    }
 
     // Update clock
     function updateClock() {
