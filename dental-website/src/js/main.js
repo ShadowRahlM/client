@@ -8,29 +8,24 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Dark mode functionality
     const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const html = document.documentElement;
 
     // Function to set the dark mode
     function setDarkMode(isDark) {
         if (isDark) {
-            document.documentElement.classList.add('dark');
+            html.classList.add('dark');
+            document.body.classList.add('dark');
             localStorage.setItem('darkMode', 'enabled');
-            if (darkModeToggle) {
-                darkModeToggle.textContent = '🌞';
-                darkModeToggle.setAttribute('aria-label', 'Switch to light mode');
-            }
         } else {
-            document.documentElement.classList.remove('dark');
+            html.classList.remove('dark');
+            document.body.classList.remove('dark');
             localStorage.setItem('darkMode', 'disabled');
-            if (darkModeToggle) {
-                darkModeToggle.textContent = '🌜';
-                darkModeToggle.setAttribute('aria-label', 'Switch to dark mode');
-            }
         }
         
-        // Update icon if it exists
-        const icon = document.querySelector('#dark-mode-toggle');
-        if (icon) {
-            icon.textContent = isDark ? '🌞' : '🌜';
+        // Update toggle button if it exists
+        if (darkModeToggle) {
+            darkModeToggle.textContent = isDark ? '🌞' : '🌜';
+            darkModeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }
     }
 
@@ -43,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle dark mode
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.contains('dark');
+            const isDark = html.classList.contains('dark');
             setDarkMode(!isDark);
         });
     }
