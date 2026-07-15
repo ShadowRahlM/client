@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Teeth Whitening"
+  description="Professional teeth whitening in Uganda. Brighten your smile safely and effectively at Snow Dental."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="Teeth Whitening" subtitle="Brighten your smile" image="https://images.pexels.com/photos/5622271/pexels-photo-5622271.jpeg?auto=compress&cs=tinysrgb&w=1920" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>Professional Teeth Whitening</h2>
+        <p>Professional whitening is safe, effective, and delivers noticeably brighter results than over-the-counter products. We use high-quality bleaching agents that would not be available without a dental visit.</p>
+
+        <h2>Benefits</h2>
+        <ul>
+          <li>Safe, supervised treatment</li>
+          <li>Visible results after a single session</li>
+          <li>Longer-lasting than store-bought whitening</li>
+        </ul>
+
+        <h2>Is Whitening Right for You?</h2>
+        <p>Whitening works best for natural teeth with surface stains from coffee, tea, tobacco, or aging. We'll assess your teeth during a consultation to recommend the best approach.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Brighten Your Smile" description="Book your whitening consultation today." />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

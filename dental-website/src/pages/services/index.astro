@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const services = [
+  { title: 'General Dentistry', description: 'Routine check-ups, cleanings, fillings, scaling, and polishing to maintain optimal oral health.', href: '/services/general-dentistry', icon: '🦷' },
+  { title: 'Cosmetic Dentistry', description: 'Enhance your smile with veneers, bonding, and complete smile makeovers.', href: '/services/cosmetic-dentistry', icon: '✨' },
+  { title: 'Orthodontics', description: 'Braces and clear aligners to straighten teeth and correct bite issues.', href: '/services/orthodontics', icon: '🦷' },
+  { title: 'Dental Implants', description: 'Permanent, natural-looking tooth replacement that restores function and confidence.', href: '/services/dental-implants', icon: '🦷' },
+  { title: 'Teeth Whitening', description: 'Professional whitening treatments for a brighter, more radiant smile.', href: '/services/teeth-whitening', icon: '✨' },
+  { title: 'Root Canal Treatment', description: 'Save infected teeth with comfortable, effective root canal therapy.', href: '/services/root-canal', icon: '🦷' },
+  { title: 'Children\'s Dentistry', description: 'Gentle, kid-friendly dental care to build healthy habits from an early age.', href: '/services/childrens-dentistry', icon: '👶' },
+  { title: 'Tooth Extraction', description: 'Safe, gentle removal of damaged or problematic teeth.', href: '/services/extraction', icon: '🦷' },
+  { title: 'Dental Outreaches', description: 'Taking dental care to communities that need it most.', href: '/services/outreaches', icon: '🌍' },
+];
+---
+
+<Layout
+  title="Our Services"
+  description="Comprehensive dental services including general dentistry, cosmetic procedures, orthodontics, implants, and emergency care in Uganda."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <Hero
+    title="Our Dental Services"
+    subtitle="Comprehensive care for the whole family"
+    image="https://images.pexels.com/photos/3845666/pexels-photo-3845666.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  />
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => <ServiceCard {...service} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Not Sure Which Service You Need?"
+    description="Book a consultation and we'll help you find the right treatment."
+    ctaText="Book a Consultation"
+  />
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

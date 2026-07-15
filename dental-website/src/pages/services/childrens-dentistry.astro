@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Children's Dentistry"
+  description="Gentle, kid-friendly dental care in Uganda. Building healthy smiles from an early age at Snow Dental."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="Children's Dentistry" subtitle="Gentle care for little smiles" image="https://images.pexels.com/photos/6627379/pexels-photo-6627379.jpeg?auto=compress&cs=tinysrgb&w=1920" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>Pediatric Dental Care</h2>
+        <p>We make dental visits fun and comfortable for children. Early positive experiences build a foundation for lifelong oral health habits.</p>
+
+        <h2>Our Approach</h2>
+        <ul>
+          <li>Gentle, patient-friendly communication</li>
+          <li>Preventive care: cleanings, fluoride, sealants</li>
+          <li>Education on brushing and flossing</li>
+          <li>Treatment of cavities in baby teeth</li>
+        </ul>
+
+        <h2>When Should Your Child First Visit?</h2>
+        <p>We recommend a first dental visit by age 1 or within 6 months of the first tooth erupting. Early visits help prevent problems and establish comfort with dental care.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Start Your Child's Dental Journey" description="Book a gentle, friendly first visit today." />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

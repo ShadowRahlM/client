@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Orthodontics"
+  description="Braces and clear aligners to straighten teeth in Uganda. Orthodontic treatment for children and adults at Snow Dental."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="Orthodontics" subtitle="Straighten your smile" image="https://images.pexels.com/photos/3845735/pexels-photo-3845735.jpeg?auto=compress&cs=tinysrgb&w=1920" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>What is Orthodontics?</h2>
+        <p>Orthodontics corrects misaligned teeth and jaws, improving both appearance and function. Straight teeth are easier to clean and less prone to decay and gum disease.</p>
+
+        <h2>Treatment Options</h2>
+        <ul>
+          <li><strong>Metal braces</strong> — Traditional and effective for all types of alignment issues</li>
+          <li><strong>Clear aligners</strong> — Nearly invisible, removable trays for mild to moderate cases</li>
+        </ul>
+
+        <h2>Who Can Benefit?</h2>
+        <p>Both children and adults can benefit from orthodontic treatment. It's never too late to straighten your smile.</p>
+
+        <h2>How Long Does Treatment Take?</h2>
+        <p>Treatment duration varies depending on the complexity of your case, typically ranging from 12 to 24 months.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Start Your Smile Journey" description="Book an orthodontic consultation and find the right option for you." />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

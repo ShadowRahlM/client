@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="General Dentistry"
+  description="Routine check-ups, cleanings, fillings, and preventive dental care in Kampala. Keep your smile healthy with Snow Dental."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="General Dentistry" subtitle="Routine care for a healthy smile" image="https://images.pexels.com/photos/3845735/pexels-photo-3845735.jpeg?auto=compress&cs=tinysrgb&w=1920" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>What is General Dentistry?</h2>
+        <p>General dentistry focuses on the prevention, diagnosis, and treatment of common dental conditions. Regular visits help maintain oral health and catch problems early before they become serious.</p>
+
+        <h2>Services Include</h2>
+        <ul>
+          <li><strong>Dental check-ups</strong> — Comprehensive exams to assess your oral health</li>
+          <li><strong>Scaling and polishing</strong> — Professional cleaning to remove plaque and tartar</li>
+          <li><strong>Fillings</strong> — Restore cavities with tooth-colored materials</li>
+          <li><strong>Dental consultation</strong> — Expert advice and treatment planning</li>
+        </ul>
+
+        <h2>What to Expect</h2>
+        <p>Your first visit includes a thorough examination, discussion of your dental history, and a personalised treatment plan. We'll explain everything and answer all your questions.</p>
+
+        <h2>How Often Should You Visit?</h2>
+        <p>We recommend a check-up and cleaning every six months. Some patients may need more frequent visits depending on their oral health.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Schedule Your Check-Up" description="Regular visits keep your smile healthy. Book yours today." />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+
+const servicesList = [
+  'General Check-up',
+  'Scaling & Polishing',
+  'Tooth Extraction',
+  'Root Canal Treatment',
+  'Teeth Whitening',
+  'Dental Implants',
+  'Braces / Orthodontics',
+  'Children\'s Dentistry',
+  'Cosmetic Consultation',
+  'Emergency Appointment',
+  'Other',
+];
+---
+
+<Layout
+  title="Book an Appointment"
+  description="Book your dental appointment online at Snow Dental Services. Fast, easy, and convenient scheduling."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <Hero
+    title="Book an Appointment"
+    subtitle="Choose your preferred date and time, and we'll confirm your visit"
+    image="https://images.pexels.com/photos/3845737/pexels-photo-3845737.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-xl">
+      <form id="booking-form" class="space-y-4">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
+            <input type="text" id="name" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone *</label>
+            <input type="tel" id="phone" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+          </div>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+          <input type="email" id="email" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+        </div>
+
+        <div>
+          <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service Needed *</label>
+          <select id="service" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition">
+            <option value="">Select a service...</option>
+            {servicesList.map(s => <option value={s}>{s}</option>)}
+          </select>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Preferred Date *</label>
+            <input type="date" id="date" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+          </div>
+          <div>
+            <label for="time" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Preferred Time *</label>
+            <select id="time" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition">
+              <option value="">Select time...</option>
+              <option value="08:00">8:00 AM</option>
+              <option value="09:00">9:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="14:00">2:00 PM</option>
+              <option value="15:00">3:00 PM</option>
+              <option value="16:00">4:00 PM</option>
+              <option value="17:00">5:00 PM</option>
+              <option value="18:00">6:00 PM</option>
+              <option value="19:00">7:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="notes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Additional Notes</label>
+          <textarea id="notes" rows="3" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" placeholder="Any specific concerns or information..."></textarea>
+        </div>
+
+        <p class="text-xs text-gray-500 dark:text-gray-400">
+          We'll call you within 2 hours during practice hours to confirm your appointment.
+        </p>
+
+        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 px-4 rounded-lg transition-colors text-lg">
+          Request Appointment
+        </button>
+        <p id="booking-status" class="text-sm text-center hidden"></p>
+      </form>
+
+      <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
+        <p class="text-gray-600 dark:text-gray-400 text-sm">Prefer to call?</p>
+        <a href="tel:+256756350444" class="text-primary-600 dark:text-primary-400 font-bold text-lg hover:underline">0756-350-444</a>
+      </div>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>
+
+<script>
+  import { submitBooking } from '../lib/firebase';
+
+  const form = document.getElementById('booking-form');
+  const status = document.getElementById('booking-status');
+
+  // Set min date to tomorrow
+  const dateInput = document.getElementById('date');
+  if (dateInput) {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    dateInput.min = tomorrow.toISOString().split('T')[0];
+  }
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        service: document.getElementById('service').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value,
+        notes: document.getElementById('notes').value,
+      };
+
+      try {
+        status.className = 'text-sm text-center text-primary-600';
+        status.textContent = 'Submitting...';
+        status.classList.remove('hidden');
+        await submitBooking(data);
+        status.textContent = 'Thank you! We\'ll confirm your appointment within 2 hours.';
+        status.className = 'text-sm text-center text-green-600';
+        form.reset();
+      } catch (err) {
+        status.textContent = 'Something went wrong. Please call us at 0756-350-444.';
+        status.className = 'text-sm text-center text-red-600';
+      }
+    });
+  }
+</script>

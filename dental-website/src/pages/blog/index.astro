@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+const posts = [
+  {
+    title: 'How Often Should You Visit the Dentist?',
+    excerpt: 'Regular dental visits are essential for maintaining oral health. Learn why twice-yearly check-ups are recommended and what happens during a routine visit.',
+    date: '2025-01-15',
+    slug: 'how-often-visit-dentist',
+    readingTime: '4 min read',
+  },
+  {
+    title: 'The Benefits of Professional Teeth Whitening',
+    excerpt: 'Thinking about whitening your teeth? Discover why professional treatment is safer and more effective than over-the-counter alternatives.',
+    date: '2025-01-01',
+    slug: 'benefits-professional-teeth-whitening',
+    readingTime: '5 min read',
+  },
+  {
+    title: 'Dental Care for Children: Building Healthy Habits Early',
+    excerpt: 'Tips for parents on establishing good oral hygiene habits for children and making dental visits a positive experience.',
+    date: '2024-12-15',
+    slug: 'dental-care-for-children',
+    readingTime: '6 min read',
+  },
+];
+---
+
+<Layout
+  title="Dental Health Blog"
+  description="Tips, guides, and advice for maintaining a healthy smile. Read the Snow Dental blog for dental care insights."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <Hero
+    title="Dental Health Blog"
+    subtitle="Tips and advice for a healthier smile"
+  />
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="space-y-8">
+        {posts.map(post => (
+          <article class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+            <div class="p-6">
+              <div class="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 mb-2">
+                <time datetime={post.date}>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                <span>&middot;</span>
+                <span>{post.readingTime}</span>
+              </div>
+              <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{post.title}</h2>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">{post.excerpt}</p>
+              <a href={`/blog/${post.slug}`} class="inline-flex items-center gap-1 text-primary-600 dark:text-primary-400 font-semibold text-sm hover:gap-2 transition-all">
+                Read more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Have a Dental Question?"
+    description="We're here to help. Contact us for personalised advice."
+    ctaText="Ask Us"
+    ctaHref="/contact"
+  />
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

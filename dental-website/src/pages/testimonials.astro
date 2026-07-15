@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const testimonials = [
+  { quote: 'I was so nervous about my dental visit, but the team at Snow Dental made me feel completely at ease. Professional, gentle, and caring.', name: 'Sarah M.', location: 'Kampala' },
+  { quote: 'The best dental experience I\'ve ever had. My smile has never looked better thanks to their cosmetic work.', name: 'James K.', location: 'Entebbe' },
+  { quote: 'They accommodated my emergency appointment on a Sunday! Incredible service and compassion.', name: 'Grace N.', location: 'Kampala' },
+  { quote: 'My children actually look forward to their dental visits now. The team is so patient and wonderful with kids.', name: 'Esther W.', location: 'Kampala' },
+  { quote: 'Professional, affordable, and genuinely caring. I recommend Snow Dental to everyone I know.', name: 'Robert S.', location: 'Jinja' },
+  { quote: 'The whitening treatment was quick and painless. I\'m thrilled with the results!', name: 'Mary A.', location: 'Kampala' },
+];
+---
+
+<Layout
+  title="Testimonials"
+  description="Hear from our patients at Snow Dental Services. Read real reviews and see why patients trust us with their smiles."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <Hero
+    title="What Our Patients Say"
+    subtitle="Real stories from real patients"
+    image="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  />
+
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <!-- Google Reviews badge -->
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 bg-white dark:bg-gray-800 px-6 py-3 rounded-full shadow-sm border border-gray-200 dark:border-gray-700">
+          <span class="text-yellow-500 font-bold text-lg">★★★★★</span>
+          <span class="text-gray-900 dark:text-white font-semibold">4.9</span>
+          <span class="text-gray-500 dark:text-gray-400 text-sm">based on Google reviews</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {testimonials.map(t => <TestimonialCard {...t} />)}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Ready to Experience Snow Dental?"
+    description="Join our happy patients — book your appointment today."
+  />
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

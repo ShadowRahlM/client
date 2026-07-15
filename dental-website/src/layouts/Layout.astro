@@ -1,0 +1,91 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const { title, description, canonical, ogImage } = Astro.props;
+const site = 'https://snowdental.com';
+const defaultImage = '/images/og-default.jpg';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Snow Dental Services</title>
+  <meta name="description" content={description} />
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonical || `${site}${Astro.url.pathname}`} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={`${title} | Snow Dental Services`} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage || `${site}${defaultImage}`} />
+  <meta property="og:url" content={canonical || `${site}${Astro.url.pathname}`} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- JSON-LD Organization Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    name: "Snow Dental Services",
+    image: `${site}${defaultImage}`,
+    url: site,
+    telephone: "+256756350444",
+    email: "info@snowdental.com",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "UG",
+    },
+    openingHoursSpecification: [
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], opens: "08:00", closes: "20:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "10:00", closes: "23:00" },
+    ],
+    sameAs: ["https://wa.me/256789579795"],
+  })} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=100&id=1imD2S2LULz7&format=png&color=000000" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body class="flex flex-col min-h-screen">
+  <!-- Skip to content (accessibility) -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-primary-700 focus:rounded focus:shadow-lg">
+    Skip to main content
+  </a>
+
+  <slot name="header" />
+
+  <main id="main-content" class="flex-1">
+    <slot />
+  </main>
+
+  <slot name="footer" />
+
+  <!-- Dark mode script (inline to avoid flash) -->
+  <script is:inline>
+    (function() {
+      const stored = localStorage.getItem('darkMode');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'enabled' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+</body>
+</html>

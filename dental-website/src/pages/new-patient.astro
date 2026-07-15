@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABanner from '../components/CTABanner.astro';
+---
+
+<Layout
+  title="New Patients"
+  description="Welcome to Snow Dental Services. Everything new patients need to know — what to expect, how to prepare, and how to book your first visit."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <Hero
+    title="New Patients Welcome"
+    subtitle="Here's everything you need to know before your first visit"
+    image="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="space-y-8">
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6">
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Your First Visit</h2>
+          <ol class="space-y-3 text-gray-600 dark:text-gray-400">
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 rounded-full flex items-center justify-center text-sm font-bold shrink-0">1</span>
+              <span><strong>Book your appointment</strong> — online, by phone, or via WhatsApp</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 rounded-full flex items-center justify-center text-sm font-bold shrink-0">2</span>
+              <span><strong>Arrive a few minutes early</strong> to complete any necessary paperwork</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 rounded-full flex items-center justify-center text-sm font-bold shrink-0">3</span>
+              <span><strong>Meet your dentist</strong> — we'll discuss your concerns, goals, and medical history</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 rounded-full flex items-center justify-center text-sm font-bold shrink-0">4</span>
+              <span><strong>Comprehensive exam</strong> — we'll check your teeth, gums, and take X-rays if needed</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="w-7 h-7 bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 rounded-full flex items-center justify-center text-sm font-bold shrink-0">5</span>
+              <span><strong>Personalised treatment plan</strong> — we'll explain our findings and recommend next steps</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6">
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-3">What to Bring</h2>
+          <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+            <li class="flex gap-2">
+              <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Valid ID or passport
+            </li>
+            <li class="flex gap-2">
+              <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Any previous dental records or X-rays (if available)
+            </li>
+            <li class="flex gap-2">
+              <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              List of medications you're taking
+            </li>
+            <li class="flex gap-2">
+              <svg class="w-5 h-5 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Insurance information (if applicable)
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-xl p-6">
+          <h2 class="text-xl font-bold text-primary-800 dark:text-primary-300 mb-2">We Accept New Patients</h2>
+          <p class="text-primary-700 dark:text-primary-400">
+            Whether you need a routine check-up or specialised treatment, we welcome new patients.
+            Book your first appointment today and experience the Snow Dental difference.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Book Your First Visit"
+    description="Take the first step toward a healthier smile."
+  />
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

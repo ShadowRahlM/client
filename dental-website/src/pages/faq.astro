@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const faqs = [
+  { q: 'How often should I visit the dentist?', a: 'We recommend a check-up and professional cleaning every six months. Some patients may need more frequent visits depending on their oral health condition.' },
+  { q: 'Does dental treatment hurt?', a: 'We prioritise your comfort. Most procedures are performed under local anaesthesia, so you should feel no pain during treatment. We also offer options for patients with dental anxiety.' },
+  { q: 'What should I expect during my first visit?', a: 'Your first visit includes a thorough examination, discussion of your medical and dental history, and a personalised treatment plan. We\'ll take X-rays if needed and answer all your questions.' },
+  { q: 'Do you accept emergency patients?', a: 'Yes! We see emergency patients promptly. Call us at 0756-350-444 for urgent dental needs. We\'re open 7 days a week.' },
+  { q: 'What payment methods do you accept?', a: 'We accept cash and mobile money. Contact us for details on pricing and payment plans.' },
+  { q: 'How do I book an appointment?', a: 'You can book online through our website, call us at 0756-350-444, or send us a WhatsApp message at 0789-579-795.' },
+  { q: 'What services do you offer for children?', a: 'We provide gentle, child-friendly dental care including check-ups, cleanings, fluoride treatments, sealants, and education on proper oral hygiene habits.' },
+  { q: 'How long does a teeth whitening procedure take?', a: 'Professional in-office whitening typically takes about 60-90 minutes. You\'ll see visible results immediately after the procedure.' },
+  { q: 'What is the difference between a crown and a filling?', a: 'A filling repairs minor to moderate tooth decay, while a crown (cap) covers the entire tooth for more extensive damage or after a root canal. Your dentist will recommend the best option based on your specific situation.' },
+  { q: 'Do you offer teeth straightening for adults?', a: 'Absolutely! We offer braces and clear aligners suitable for adults. It\'s never too late to improve your smile.' },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+---
+
+<Layout
+  title="Frequently Asked Questions"
+  description="Answers to common questions about dental care at Snow Dental Services. Learn about appointments, treatments, payments, and more."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <Hero
+    title="Frequently Asked Questions"
+    subtitle="Answers to common questions about our dental services"
+  />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="space-y-4">
+        {faqs.map((faq, i) => (
+          <details class="group bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <summary class="flex items-center justify-between p-5 cursor-pointer list-none font-semibold text-gray-900 dark:text-white group-open:bg-white dark:group-open:bg-gray-800 transition-colors">
+              <span>{faq.q}</span>
+              <svg class="w-5 h-5 shrink-0 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-gray-600 dark:text-gray-400 leading-relaxed">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Still Have Questions?" description="We're happy to help. Get in touch with us." ctaText="Contact Us" ctaHref="/contact" />
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>
+
+<!-- FAQ JSON-LD Schema -->
+<script set:html={JSON.stringify(faqSchema)} type="application/ld+json"></script>

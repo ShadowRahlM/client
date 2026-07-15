@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const services = [
+  { title: 'General Dentistry', description: 'Routine check-ups, cleanings, and fillings to keep your smile healthy.', href: '/services/general-dentistry', icon: '🦷' },
+  { title: 'Cosmetic Dentistry', description: 'Enhance your smile with veneers, bonding, and smile makeovers.', href: '/services/cosmetic-dentistry', icon: '✨' },
+  { title: 'Orthodontics', description: 'Straighten teeth with braces and clear aligners for all ages.', href: '/services/orthodontics', icon: '🦷' },
+  { title: 'Dental Implants', description: 'Permanent, natural-looking tooth replacement solutions.', href: '/services/dental-implants', icon: '🦷' },
+  { title: 'Teeth Whitening', description: 'Professional whitening for a brighter, more confident smile.', href: '/services/teeth-whitening', icon: '✨' },
+  { title: 'Emergency Care', description: 'Same-day emergency appointments when you need them most.', href: '/services/emergency', icon: '⚡' },
+];
+
+const testimonials = [
+  { quote: 'I was so nervous about my dental visit, but the team at Snow Dental made me feel completely at ease. Professional, gentle, and caring.', name: 'Sarah M.', location: 'Kampala' },
+  { quote: 'The best dental experience I\'ve ever had. My smile has never looked better thanks to their cosmetic work.', name: 'James K.', location: 'Entebbe' },
+  { quote: 'They accommodated my emergency appointment on a Sunday! Incredible service and compassion.', name: 'Grace N.', location: 'Kampala' },
+];
+---
+
+<Layout
+  title="Snow Dental Services - Your Smile, Our Priority"
+  description="Professional dental care in Uganda. General dentistry, cosmetic dentistry, orthodontics, implants, and emergency care. Book your appointment today."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <Hero
+    title="Your Smile is Our Priority"
+    subtitle="Professional, gentle dental care for the whole family. Better teeth, better health."
+  />
+
+  <!-- Trust badges -->
+  <section class="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+    <div class="container mx-auto px-4 py-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="p-3">
+          <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">10+</div>
+          <div class="text-xs text-gray-500 dark:text-gray-400">Years Experience</div>
+        </div>
+        <div class="p-3">
+          <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">5,000+</div>
+          <div class="text-xs text-gray-500 dark:text-gray-400">Happy Patients</div>
+        </div>
+        <div class="p-3">
+          <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">6+</div>
+          <div class="text-xs text-gray-500 dark:text-gray-400">Services Offered</div>
+        </div>
+        <div class="p-3">
+          <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">4.9</div>
+          <div class="text-xs text-gray-500 dark:text-gray-400">Patient Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">Our Services</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-center mb-10 max-w-lg mx-auto">
+        Comprehensive dental care tailored to your needs
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map(service => <ServiceCard {...service} />)}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/services" class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold hover:gap-3 transition-all">
+          View all services <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">Why Choose Snow Dental?</h2>
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <svg class="w-6 h-6 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Experienced team</strong> — Our dentists have years of training and practice</span>
+            </li>
+            <li class="flex gap-3">
+              <svg class="w-6 h-6 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Gentle care</strong> — We prioritize your comfort at every step</span>
+            </li>
+            <li class="flex gap-3">
+              <svg class="w-6 h-6 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Modern technology</strong> — State-of-the-art equipment for better results</span>
+            </li>
+            <li class="flex gap-3">
+              <svg class="w-6 h-6 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span class="text-gray-700 dark:text-gray-300"><strong>Flexible hours</strong> — Open 7 days a week, including evenings</span>
+            </li>
+          </ul>
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <img src="https://images.pexels.com/photos/3845737/pexels-photo-3845737.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Modern dental clinic with professional equipment" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-2">What Our Patients Say</h2>
+      <p class="text-gray-600 dark:text-gray-400 text-center mb-10 max-w-lg mx-auto">
+        Real feedback from real patients
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        {testimonials.map(t => <TestimonialCard {...t} />)}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/testimonials" class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold hover:gap-3 transition-all">
+          Read more reviews <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Ready to Book Your Visit?"
+    description="Schedule your appointment online or give us a call. We're here when you need us."
+    ctaText="Book Online Now"
+  />
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

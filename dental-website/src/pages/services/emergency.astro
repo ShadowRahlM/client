@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Emergency Dental Care"
+  description="Same-day emergency dental appointments in Uganda. Toothache, broken tooth, or dental trauma — we're here when you need us."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero
+    title="Emergency Dental Care"
+    subtitle="We're here when you need us most"
+    emergency={true}
+    ctaText="Call 0756-350-444"
+    ctaHref="tel:+256756350444"
+    secondaryCtaText="Book Online"
+    secondaryCtaHref="/book-online"
+    image="https://images.pexels.com/photos/3845737/pexels-photo-3845737.jpeg?auto=compress&cs=tinysrgb&w=1920"
+  />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>Dental Emergencies We Treat</h2>
+        <ul>
+          <li>Severe toothache or dental pain</li>
+          <li>Broken, chipped, or knocked-out tooth</li>
+          <li>Lost filling or crown</li>
+          <li>Abscess or swelling</li>
+          <li>Bleeding that won't stop</li>
+          <li>Injury to the mouth or jaw</li>
+        </ul>
+
+        <h2>What to Do in a Dental Emergency</h2>
+        <ol>
+          <li>Call us immediately at <strong>0756-350-444</strong></li>
+          <li>Describe your symptoms so we can prepare</li>
+          <li>Come in — we'll see you as soon as possible</li>
+        </ol>
+
+        <h2>Extended Hours</h2>
+        <p>We're open 7 days a week, including evenings and Sundays. Emergency cases receive priority care.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner
+    title="Need Urgent Care?"
+    description="Call us now or come in — we'll take care of you."
+    ctaText="Call 0756-350-444"
+    ctaHref="tel:+256756350444"
+    emergency={true}
+  />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

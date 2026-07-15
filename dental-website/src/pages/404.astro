@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Page Not Found"
+  description="The page you're looking for doesn't exist."
+>
+  <Fragment slot="header"><Header /></Fragment>
+
+  <section class="flex-1 flex items-center justify-center py-24">
+    <div class="text-center px-4">
+      <h1 class="text-6xl font-extrabold text-primary-600 dark:text-primary-400 mb-4">404</h1>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Page Not Found</h2>
+      <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
+        Sorry, the page you're looking for doesn't exist or has been moved.
+      </p>
+      <a href="/" class="inline-block bg-primary-600 hover:bg-primary-700 text-white font-bold px-6 py-3 rounded-lg transition-colors">
+        Go Home
+      </a>
+    </div>
+  </section>
+
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

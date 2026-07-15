@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Dental Implants"
+  description="Permanent tooth replacement with dental implants in Uganda. Restore your smile and confidence at Snow Dental."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="Dental Implants" subtitle="Permanent solutions for missing teeth" image="https://images.pexels.com/photos/3779700/pexels-photo-3779700.jpeg?auto=compress&cs=tinysrgb&w=1920" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>What are Dental Implants?</h2>
+        <p>Dental implants are titanium posts surgically placed in the jawbone to replace missing tooth roots. They provide a permanent foundation for crowns, bridges, or dentures.</p>
+
+        <h2>Benefits</h2>
+        <ul>
+          <li>Natural look and feel</li>
+          <li>Permanent solution — can last a lifetime with proper care</li>
+          <li>Preserves jawbone health</li>
+          <li>Does not affect neighbouring teeth</li>
+        </ul>
+
+        <h2>The Procedure</h2>
+        <p>The process involves multiple stages: consultation and planning, implant placement, healing period (osseointegration), and final restoration placement. Treatment typically takes 3-6 months.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Restore Your Smile" description="Book a consultation to see if implants are right for you." />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

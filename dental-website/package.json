@@ -1,24 +1,21 @@
 {
-  "name": "dental-website",
+  "name": "snow-dental-services",
   "version": "1.0.0",
-  "description": "A dental website project showcasing services, team, and contact information using Tailwind CSS.",
-  "main": "src/index.html",
+  "private": true,
   "scripts": {
-    "build": "tailwindcss build src/styles.css -o dist/styles.css",
-    "watch": "tailwindcss build src/styles.css -o dist/styles.css --watch"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "tailwindcss": "^2.2.19"
+    "@astrojs/sitemap": "^3.1.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.0",
+    "astro": "^4.9.0",
+    "firebase": "^10.14.1",
+    "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5"
-  },
-  "keywords": [
-    "dental",
-    "website",
-    "tailwindcss"
-  ],
-  "author": "Your Name",
-  "license": "MIT"
+    "firebase-tools": "^15.23.0"
+  }
 }

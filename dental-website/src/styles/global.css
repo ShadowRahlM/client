@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 antialiased;
+  }
+}
+
+@layer components {
+  .header-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800;
+  }
+
+  .dark .header-gradient {
+    @apply from-gray-900 to-gray-800;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

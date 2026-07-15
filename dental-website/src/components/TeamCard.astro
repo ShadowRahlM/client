@@ -1,0 +1,23 @@
+---
+export interface Props {
+  name: string;
+  role: string;
+  bio: string;
+  image?: string;
+}
+
+const { name, role, bio, image } = Astro.props;
+---
+
+<div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 text-center border border-gray-100 dark:border-gray-700">
+  <div class="w-24 h-24 rounded-full bg-primary-100 dark:bg-primary-900 mx-auto mb-4 flex items-center justify-center text-primary-600 dark:text-primary-300 text-3xl font-bold">
+    {image ? (
+      <img src={image} alt={name} class="w-full h-full rounded-full object-cover" loading="lazy" />
+    ) : (
+      name.split(' ').map(w => w[0]).join('').slice(0, 2)
+    )}
+  </div>
+  <h3 class="text-lg font-bold text-gray-900 dark:text-white">{name}</h3>
+  <p class="text-sm font-medium text-primary-600 dark:text-primary-400 mb-2">{role}</p>
+  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{bio}</p>
+</div>

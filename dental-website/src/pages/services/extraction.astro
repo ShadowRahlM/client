@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Tooth Extraction"
+  description="Safe, gentle tooth extraction in Uganda. Wisdom teeth removal and other extractions at Snow Dental."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="Tooth Extraction" subtitle="Safe, gentle removal when needed" image="https://images.pexels.com/photos/3779700/pexels-photo-3779700.jpeg?auto=compress&cs=tinysrgb&w=1920" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>When is Extraction Needed?</h2>
+        <p>Tooth extraction may be necessary when a tooth is too damaged to repair, causing crowding, or posing a risk to oral health.</p>
+
+        <h2>Common Reasons</h2>
+        <ul>
+          <li>Severe decay or damage beyond repair</li>
+          <li>Impacted wisdom teeth</li>
+          <li>Overcrowding requiring orthodontic treatment</li>
+          <li>Advanced gum disease loosening teeth</li>
+        </ul>
+
+        <h2>What to Expect</h2>
+        <p>The procedure is performed under local anaesthesia. You'll feel pressure but no pain. Recovery typically takes a few days, and we'll provide detailed aftercare instructions.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="In Pain? We Can Help" description="Book an appointment for evaluation and gentle care." />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

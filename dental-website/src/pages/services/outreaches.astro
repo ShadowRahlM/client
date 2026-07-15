@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Dental Outreaches"
+  description="Taking dental care to communities in need. Learn about our outreach programs and community service at Snow Dental."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="Dental Outreaches" subtitle="Bringing smiles to communities" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>Our Commitment to the Community</h2>
+        <p>We believe everyone deserves access to quality dental care. Our outreach programs bring free or low-cost dental services to underserved communities.</p>
+
+        <h2>What We Offer</h2>
+        <ul>
+          <li>Free dental check-ups and screenings</li>
+          <li>Oral health education and hygiene supplies</li>
+          <li>Basic treatment for those who cannot access regular care</li>
+        </ul>
+
+        <p>Interested in partnering with us or hosting an outreach event? <a href="/contact">Get in touch</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Partner With Us" description="Want to bring dental care to your community? Contact us to learn more." ctaText="Contact Us" ctaHref="/contact" />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

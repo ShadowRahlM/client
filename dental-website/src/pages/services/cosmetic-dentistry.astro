@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import CTABanner from '../../components/CTABanner.astro';
+---
+
+<Layout
+  title="Cosmetic Dentistry"
+  description="Enhance your smile with professional cosmetic dentistry — veneers, bonding, and smile makeovers in Uganda."
+>
+  <Fragment slot="header"><Header /></Fragment>
+  <Hero title="Cosmetic Dentistry" subtitle="Transform your smile" image="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1920" />
+
+  <section class="py-16 bg-white dark:bg-gray-800">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <div class="prose prose-gray dark:prose-invert max-w-none">
+        <h2>What is Cosmetic Dentistry?</h2>
+        <p>Cosmetic dentistry improves the appearance of your teeth, gums, and smile. Whether you're looking for a subtle change or a complete transformation, we can help.</p>
+
+        <h2>Services Include</h2>
+        <ul>
+          <li><strong>Veneers</strong> — Thin porcelain shells that cover the front of teeth to fix chips, gaps, and discolouration</li>
+          <li><strong>Dental bonding</strong> — Tooth-coloured resin to repair chips and cracks</li>
+          <li><strong>Smile makeovers</strong> — Comprehensive treatment plans combining multiple procedures for your ideal smile</li>
+        </ul>
+
+        <h2>Is Cosmetic Dentistry Right for You?</h2>
+        <p>If you're unhappy with the appearance of your smile, cosmetic dentistry can help. We'll discuss your goals and recommend the best approach during a consultation.</p>
+      </div>
+    </div>
+  </section>
+
+  <CTABanner title="Ready for a Brighter Smile?" description="Book a cosmetic consultation today." />
+  <Fragment slot="footer"><Footer /></Fragment>
+</Layout>

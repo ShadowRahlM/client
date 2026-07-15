@@ -1,0 +1,46 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  emergency?: boolean;
+  image?: string;
+}
+
+const { title, subtitle, ctaText, ctaHref, secondaryCtaText, secondaryCtaHref, emergency, image } = Astro.props;
+const bgImage = image || 'https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1920';
+---
+
+<section class="relative text-white overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-primary-800/90 to-primary-900/85 z-10"></div>
+  <img src={bgImage} alt="" class="absolute inset-0 w-full h-full object-cover" loading="lazy" aria-hidden="true" />
+  <div class="container mx-auto px-4 py-16 md:py-24 text-center relative z-20">
+    {emergency && (
+      <span class="inline-block bg-red-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+        24/7 Emergency Care Available
+      </span>
+    )}
+    <h1 class="text-3xl md:text-5xl font-extrabold mb-4 text-balance">{title}</h1>
+    {subtitle && <p class="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8">{subtitle}</p>}
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      {ctaText && ctaHref && (
+        <a href={ctaHref} class="bg-white text-primary-700 hover:bg-primary-50 font-bold px-8 py-3 rounded-lg transition-colors shadow-lg">
+          {ctaText}
+        </a>
+      )}
+      {secondaryCtaText && secondaryCtaHref && (
+        <a href={secondaryCtaHref} class="bg-white/20 hover:bg-white/30 text-white font-semibold px-8 py-3 rounded-lg transition-colors border border-white/30">
+          {secondaryCtaText}
+        </a>
+      )}
+      {!ctaHref && (
+        <a href="/book-online" class="bg-white text-primary-700 hover:bg-primary-50 font-bold px-8 py-3 rounded-lg transition-colors shadow-lg">
+          Book an Appointment
+        </a>
+      )}
+    </div>
+  </div>
+</section>
