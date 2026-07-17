@@ -37,22 +37,22 @@ const servicesList = [
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name *</label>
-            <input type="text" id="name" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+            <input type="text" id="name" name="name" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
           </div>
           <div>
             <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone *</label>
-            <input type="tel" id="phone" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
           </div>
         </div>
 
         <div>
           <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-          <input type="email" id="email" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+          <input type="email" id="email" name="email" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
         </div>
 
         <div>
           <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service Needed *</label>
-          <select id="service" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition">
+          <select id="service" name="service" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition">
             <option value="">Select a service...</option>
             {servicesList.map(s => <option value={s}>{s}</option>)}
           </select>
@@ -61,11 +61,11 @@ const servicesList = [
         <div class="grid sm:grid-cols-2 gap-4">
           <div>
             <label for="date" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Preferred Date *</label>
-            <input type="date" id="date" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
+            <input type="date" id="date" name="date" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" />
           </div>
           <div>
             <label for="time" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Preferred Time *</label>
-            <select id="time" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition">
+            <select id="time" name="time" required class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition">
               <option value="">Select time...</option>
               <option value="08:00">8:00 AM</option>
               <option value="09:00">9:00 AM</option>
@@ -84,7 +84,7 @@ const servicesList = [
 
         <div>
           <label for="notes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Additional Notes</label>
-          <textarea id="notes" rows="3" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" placeholder="Any specific concerns or information..."></textarea>
+          <textarea id="notes" name="notes" rows="3" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition" placeholder="Any specific concerns or information..."></textarea>
         </div>
 
         <p class="text-xs text-gray-500 dark:text-gray-400">
@@ -124,15 +124,7 @@ const servicesList = [
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        email: document.getElementById('email').value,
-        service: document.getElementById('service').value,
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        notes: document.getElementById('notes').value,
-      };
+      const data = Object.fromEntries(new FormData(form));
 
       try {
         status.className = 'text-sm text-center text-primary-600';

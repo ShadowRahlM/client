@@ -37,5 +37,3 @@ export async function submitBooking({ name, phone, email, service, date, time, n
   });
   return docRef.id;
 }
-
-export { db };

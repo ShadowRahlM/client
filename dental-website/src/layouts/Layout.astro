@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 export interface Props {
   title: string;
   description: string;
@@ -7,8 +9,8 @@ export interface Props {
 }
 
 const { title, description, canonical, ogImage } = Astro.props;
-const site = 'https://snowdental.com';
-const defaultImage = '/images/og-default.jpg';
+const site = 'https://snow-dental-services.web.app';
+const defaultImage = 'https://images.pexels.com/photos/3845735/pexels-photo-3845735.jpeg?auto=compress&cs=tinysrgb&w=1200';
 ---
 
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ const defaultImage = '/images/og-default.jpg';
   <meta property="og:type" content="website" />
   <meta property="og:title" content={`${title} | Snow Dental Services`} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage || `${site}${defaultImage}`} />
+  <meta property="og:image" content={ogImage || defaultImage} />
   <meta property="og:url" content={canonical || `${site}${Astro.url.pathname}`} />
 
   <!-- Twitter -->
@@ -37,7 +39,7 @@ const defaultImage = '/images/og-default.jpg';
     "@context": "https://schema.org",
     "@type": "Dentist",
     name: "Snow Dental Services",
-    image: `${site}${defaultImage}`,
+    image: defaultImage,
     url: site,
     telephone: "+256756350444",
     email: "info@snowdental.com",
@@ -60,8 +62,7 @@ const defaultImage = '/images/og-default.jpg';
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Global styles -->
-  <link rel="stylesheet" href="/src/styles/global.css" />
+  <!-- Global styles (imported in frontmatter for Tailwind processing) -->
 </head>
 <body class="flex flex-col min-h-screen">
   <!-- Skip to content (accessibility) -->
